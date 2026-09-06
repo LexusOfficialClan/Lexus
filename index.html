@@ -1,0 +1,2901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LxS • Lexus | Clan Oficial</title>
+
+<style>
+
+/* =========================================================
+   FUENTES
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+    --purple:#7c4dff;
+    --purple2:#b26cff;
+    --violet:#4b20a8;
+    --dark:#070313;
+    --dark2:#10071f;
+    --card:rgba(22,10,43,.72);
+    --border:rgba(155,100,255,.28);
+    --text:#ffffff;
+    --muted:#aaa1c2;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#05020c;
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   FONDO MORADO GOD
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-10;
+
+    background:
+        radial-gradient(circle at 50% 0%,
+            rgba(130,55,255,.45),
+            transparent 32%),
+
+        radial-gradient(circle at 0% 30%,
+            rgba(99,25,220,.35),
+            transparent 30%),
+
+        radial-gradient(circle at 100% 70%,
+            rgba(174,60,255,.25),
+            transparent 32%),
+
+        radial-gradient(circle at 40% 100%,
+            rgba(63,20,150,.4),
+            transparent 35%),
+
+        linear-gradient(
+            135deg,
+            #030108,
+            #0c0318,
+            #16052d,
+            #08020f
+        );
+}
+
+
+/* GRID DEL FONDO */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-9;
+    opacity:.13;
+
+    background-image:
+        linear-gradient(rgba(180,120,255,.35) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(180,120,255,.35) 1px,transparent 1px);
+
+    background-size:55px 55px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent 90%
+    );
+}
+
+
+/* =========================================================
+   AURORAS
+========================================================= */
+
+.aurora{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.16;
+    z-index:-8;
+    pointer-events:none;
+    animation:floatAurora 12s ease-in-out infinite alternate;
+}
+
+.a1{
+    background:#7b2cff;
+    top:-150px;
+    left:-150px;
+}
+
+.a2{
+    background:#d64cff;
+    right:-180px;
+    top:25%;
+    animation-delay:3s;
+}
+
+.a3{
+    background:#4725ff;
+    bottom:-200px;
+    left:30%;
+    animation-delay:6s;
+}
+
+@keyframes floatAurora{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+    to{
+        transform:translate(80px,50px) scale(1.25);
+    }
+}
+
+
+/* =========================================================
+   PARTÍCULAS
+========================================================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-5;
+    overflow:hidden;
+}
+
+.particles span{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:#d7baff;
+    box-shadow:0 0 12px #a866ff;
+    animation:particleMove linear infinite;
+}
+
+@keyframes particleMove{
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    85%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+.navbar{
+    position:fixed;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1150px,92%);
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:13px 20px;
+
+    background:rgba(10,3,22,.72);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(160,100,255,.3);
+    border-radius:18px;
+
+    box-shadow:
+        0 0 35px rgba(100,40,255,.12);
+}
+
+.nav-logo{
+    font-family:'Orbitron';
+    font-weight:900;
+    letter-spacing:4px;
+    color:#fff;
+    text-shadow:0 0 15px #9b61ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#aaa1bd;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+    text-shadow:0 0 12px #a366ff;
+}
+
+@media(max-width:750px){
+
+    .nav-links{
+        display:none;
+    }
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 25px 50px;
+}
+
+.hero-content{
+    max-width:1000px;
+    animation:heroIn 1.2s ease;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.crown{
+    font-size:55px;
+    animation:crownFloat 3s ease-in-out infinite;
+}
+
+@keyframes crownFloat{
+    50%{
+        transform:translateY(-10px) rotate(3deg);
+    }
+}
+
+.logo{
+    font-family:'Orbitron';
+    font-size:clamp(70px,15vw,155px);
+    font-weight:900;
+    letter-spacing:15px;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #d4b5ff,
+        #8c54ff,
+        #ffffff
+    );
+
+    background-size:300% auto;
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:gradientText 5s linear infinite;
+
+    filter:
+        drop-shadow(0 0 10px #8b52ff)
+        drop-shadow(0 0 35px #5b21d6);
+}
+
+@keyframes gradientText{
+    to{
+        background-position:300% center;
+    }
+}
+
+.hero-sub{
+    font-family:'Orbitron';
+    letter-spacing:8px;
+    font-size:clamp(13px,3vw,24px);
+    color:#c8aaff;
+}
+
+.hero-description{
+    max-width:720px;
+    margin:28px auto;
+    line-height:1.8;
+    color:#b7aecb;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:13px;
+
+    color:white;
+    text-decoration:none;
+
+    font-weight:800;
+    font-size:13px;
+
+    border:1px solid #8d5cff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4b1ca5,
+            #8c4fff
+        );
+
+    box-shadow:
+        0 0 20px rgba(126,70,255,.35),
+        inset 0 0 20px rgba(255,255,255,.05);
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 0 20px #7b43ff,
+        0 0 55px rgba(123,67,255,.45);
+}
+
+.btn.secondary{
+    background:rgba(255,255,255,.04);
+    border-color:#3e3158;
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+section{
+    width:min(1150px,92%);
+    margin:auto;
+    padding:90px 0;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    font-family:'Orbitron';
+    font-size:clamp(25px,5vw,45px);
+    letter-spacing:2px;
+}
+
+.title h2 span{
+    color:#a56cff;
+    text-shadow:0 0 20px #702cff;
+}
+
+.title p{
+    margin-top:10px;
+    color:#817992;
+}
+
+
+/* =========================================================
+   SEPARADOR
+========================================================= */
+
+.separator{
+    width:100%;
+    height:1px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #783dff,
+            #c18bff,
+            #783dff,
+            transparent
+        );
+
+    box-shadow:0 0 20px #7438ff;
+}
+
+
+/* =========================================================
+   ESTADÍSTICAS
+========================================================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stat{
+    text-align:center;
+    padding:28px 15px;
+
+    background:linear-gradient(
+        145deg,
+        rgba(35,15,67,.8),
+        rgba(10,4,23,.8)
+    );
+
+    border:1px solid var(--border);
+    border-radius:18px;
+
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:translateY(-7px);
+    border-color:#985eff;
+    box-shadow:0 0 35px rgba(130,70,255,.2);
+}
+
+.stat-icon{
+    font-size:32px;
+}
+
+.stat-number{
+    font-family:'Orbitron';
+    font-size:28px;
+    font-weight:900;
+    margin:8px 0;
+    color:#c3a3ff;
+}
+
+.stat-label{
+    font-size:12px;
+    color:#837b98;
+}
+
+@media(max-width:750px){
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+
+/* =========================================================
+   INFO CARDS
+========================================================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+}
+
+.info-card{
+    padding:28px;
+    text-align:center;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34,15,65,.82),
+            rgba(9,3,20,.88)
+        );
+
+    border:1px solid var(--border);
+
+    transition:.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 0 40px rgba(122,60,255,.2);
+    border-color:#955cff;
+}
+
+.info-icon{
+    font-size:40px;
+}
+
+.info-card h3{
+    margin-top:10px;
+    color:#a878ff;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.info-card p{
+    margin-top:6px;
+    font-weight:700;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.description{
+    padding:45px;
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(41,17,76,.75),
+            rgba(12,4,27,.85)
+        );
+
+    border:1px solid var(--border);
+
+    line-height:2;
+    color:#c3bbd2;
+
+    box-shadow:
+        inset 0 0 50px rgba(124,77,255,.04);
+}
+
+.description strong{
+    color:#c09cff;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    padding:30px;
+    border-radius:22px;
+
+    background:rgba(19,7,38,.78);
+    border:1px solid var(--border);
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#8752ff;
+    box-shadow:0 0 35px rgba(110,48,255,.15);
+}
+
+.card h3{
+    font-family:'Orbitron';
+    color:#b080ff;
+    margin-bottom:20px;
+}
+
+.card p,
+.card li{
+    color:#aaa1bb;
+    line-height:1.8;
+}
+
+.card ul{
+    list-style:none;
+}
+
+.card li{
+    padding:7px 0;
+}
+
+
+/* =========================================================
+   REGLAS
+========================================================= */
+
+.rules{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.rule-box{
+    padding:30px;
+    border-radius:22px;
+    background:rgba(18,6,35,.8);
+    border:1px solid var(--border);
+}
+
+.rule-box h3{
+    margin-bottom:18px;
+}
+
+.good h3{
+    color:#6dffb2;
+}
+
+.bad h3{
+    color:#ff6683;
+}
+
+.rule-box p{
+    color:#b7afc2;
+    padding:7px 0;
+}
+
+@media(max-width:700px){
+    .rules{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+    position:relative;
+    max-width:800px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+
+    background:
+        linear-gradient(
+            transparent,
+            #884cff,
+            #bd80ff,
+            #884cff,
+            transparent
+        );
+
+    box-shadow:0 0 15px #7738ff;
+}
+
+.timeline-item{
+    width:50%;
+    padding:15px 35px;
+    position:relative;
+}
+
+.timeline-item:nth-child(even){
+    margin-left:50%;
+}
+
+.timeline-content{
+    padding:22px;
+    background:rgba(23,8,46,.8);
+    border:1px solid var(--border);
+    border-radius:18px;
+}
+
+.timeline-content h3{
+    color:#b07cff;
+    font-family:'Orbitron';
+    font-size:15px;
+}
+
+.timeline-content p{
+    margin-top:8px;
+    color:#aaa1b9;
+    font-size:13px;
+}
+
+@media(max-width:700px){
+
+    .timeline::before{
+        left:10px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even){
+        width:100%;
+        margin-left:0;
+        padding-left:35px;
+    }
+
+}
+
+
+/* =========================================================
+   TOP 3
+========================================================= */
+
+.podium{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    align-items:stretch;
+    margin-bottom:45px;
+}
+
+.podium-card{
+    position:relative;
+    padding:38px 20px;
+    text-align:center;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38,19,72,.9),
+            rgba(12,5,25,.9)
+        );
+
+    transition:.4s;
+}
+
+.podium-card:hover{
+    transform:translateY(-10px) scale(1.02);
+}
+
+.podium-card.first{
+    border:1px solid #e1bb45;
+    box-shadow:0 0 40px rgba(225,187,69,.12);
+}
+
+.podium-card.second{
+    border:1px solid #bfc8d8;
+}
+
+.podium-card.third{
+    border:1px solid #d58c5d;
+}
+
+.podium-medal{
+    font-size:65px;
+}
+
+.podium-card h3{
+    font-family:'Orbitron';
+    font-size:24px;
+    margin-top:10px;
+}
+
+.podium-place{
+    margin-top:8px;
+    font-weight:900;
+}
+
+.first .podium-place{
+    color:#ffd957;
+}
+
+.second .podium-place{
+    color:#d8dfeb;
+}
+
+.third .podium-place{
+    color:#e49b70;
+}
+
+.honor{
+    margin-top:20px;
+    color:#a8a0b9;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.honor-title{
+    color:#c59cff;
+    font-weight:800;
+}
+
+@media(max-width:700px){
+    .podium{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================================================
+   TOP 50 CONTROLES
+========================================================= */
+
+.top-controls{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+.search{
+    width:min(450px,100%);
+    padding:14px 18px;
+
+    border-radius:13px;
+    border:1px solid #49356b;
+
+    outline:none;
+
+    color:white;
+    background:rgba(12,4,25,.8);
+}
+
+.search:focus{
+    border-color:#995fff;
+    box-shadow:0 0 20px rgba(130,70,255,.2);
+}
+
+.filter{
+    padding:14px 18px;
+    border-radius:13px;
+
+    color:white;
+    background:#15082a;
+    border:1px solid #49356b;
+    outline:none;
+}
+
+.top-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:13px;
+}
+
+.player{
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(28,12,52,.85),
+            rgba(11,4,23,.9)
+        );
+
+    border:1px solid rgba(139,83,255,.18);
+
+    transition:.25s;
+}
+
+.player:hover{
+    transform:translateX(5px);
+    border-color:#8b55ff;
+    box-shadow:0 0 25px rgba(118,60,255,.12);
+}
+
+.position{
+    min-width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    font-family:'Orbitron';
+    font-size:12px;
+
+    background:#1b0d34;
+    color:#bd9bff;
+}
+
+.player-icon{
+    font-size:22px;
+}
+
+.player-info{
+    flex:1;
+}
+
+.player-name{
+    font-weight:800;
+}
+
+.role{
+    margin-top:3px;
+    color:#777086;
+    font-size:10px;
+    letter-spacing:.5px;
+}
+
+
+/* =========================================================
+   LOGROS
+========================================================= */
+
+.achievements{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:18px;
+}
+
+.achievement{
+    text-align:center;
+    padding:30px 18px;
+
+    background:rgba(22,7,42,.75);
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    transition:.3s;
+}
+
+.achievement:hover{
+    transform:scale(1.04);
+    border-color:#a162ff;
+}
+
+.achievement-icon{
+    font-size:42px;
+}
+
+.achievement h3{
+    margin-top:12px;
+    font-family:'Orbitron';
+    font-size:14px;
+    color:#bb8dff;
+}
+
+.achievement p{
+    margin-top:8px;
+    color:#8d859d;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   LEMA
+========================================================= */
+
+.motto{
+    text-align:center;
+    padding:90px 25px;
+
+    position:relative;
+}
+
+.motto::before{
+    content:"";
+    position:absolute;
+    inset:20px;
+
+    border:1px solid rgba(131,76,255,.15);
+    border-radius:30px;
+
+    box-shadow:
+        0 0 70px rgba(109,45,255,.08),
+        inset 0 0 70px rgba(109,45,255,.04);
+}
+
+.quote{
+    position:relative;
+    font-family:'Orbitron';
+    font-size:clamp(20px,4vw,38px);
+    font-weight:900;
+    line-height:1.6;
+
+    color:white;
+
+    text-shadow:
+        0 0 15px #8050ff,
+        0 0 40px rgba(115,50,255,.5);
+}
+
+.motto-small{
+    position:relative;
+    margin-top:20px;
+    color:#9b91ab;
+    letter-spacing:5px;
+}
+
+
+/* =========================================================
+   JOIN
+========================================================= */
+
+.join{
+    text-align:center;
+
+    padding:65px 25px;
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(104,46,220,.3),
+            transparent 65%
+        ),
+        rgba(18,6,38,.85);
+
+    border:1px solid #6d3bc2;
+
+    box-shadow:
+        0 0 60px rgba(99,45,255,.12),
+        inset 0 0 60px rgba(99,45,255,.05);
+}
+
+.join h2{
+    font-family:'Orbitron';
+    font-size:clamp(22px,4vw,40px);
+}
+
+.join p{
+    max-width:700px;
+    margin:15px auto 28px;
+    color:#aaa0ba;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    text-align:center;
+    padding:55px 20px;
+
+    border-top:1px solid rgba(140,80,255,.15);
+
+    color:#716a7d;
+}
+
+.footer-logo{
+    font-family:'Orbitron';
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:7px;
+
+    color:white;
+
+    text-shadow:0 0 20px #8050ff;
+}
+
+footer strong{
+    color:#b58bff;
+}
+
+
+/* =========================================================
+   BOTÓN ARRIBA
+========================================================= */
+
+.back-top{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:#29104b;
+    border:1px solid #7742c9;
+
+    color:white;
+    text-decoration:none;
+
+    box-shadow:0 0 25px rgba(111,51,255,.3);
+
+    z-index:999;
+
+    transition:.3s;
+}
+
+.back-top:hover{
+    transform:translateY(-5px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:600px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .description{
+        padding:28px;
+    }
+
+    .logo{
+        letter-spacing:7px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body id="top">
+
+
+<!-- =========================================================
+     EFECTOS
+========================================================= -->
+
+<div class="aurora a1"></div>
+<div class="aurora a2"></div>
+<div class="aurora a3"></div>
+
+<div class="particles">
+
+<span style="left:5%;animation-duration:9s"></span>
+<span style="left:12%;animation-duration:13s"></span>
+<span style="left:20%;animation-duration:11s"></span>
+<span style="left:28%;animation-duration:16s"></span>
+<span style="left:36%;animation-duration:10s"></span>
+<span style="left:44%;animation-duration:14s"></span>
+<span style="left:52%;animation-duration:12s"></span>
+<span style="left:60%;animation-duration:17s"></span>
+<span style="left:68%;animation-duration:11s"></span>
+<span style="left:76%;animation-duration:15s"></span>
+<span style="left:84%;animation-duration:10s"></span>
+<span style="left:92%;animation-duration:13s"></span>
+
+</div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar">
+
+<div class="nav-logo">
+LxS
+</div>
+
+<div class="nav-links">
+
+<a href="#inicio">INICIO</a>
+<a href="#informacion">LxS</a>
+<a href="#objetivos">OBJETIVOS</a>
+<a href="#top50">TOP 50</a>
+<a href="#unirse">UNIRSE</a>
+
+</div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero" id="inicio">
+
+<div class="hero-content">
+
+<div class="crown">👑</div>
+
+<div class="logo">LxS</div>
+
+<div class="hero-sub">
+L E X U S
+</div>
+
+<p class="hero-description">
+
+⚔️ <b>CLAN COMPETITIVO DE BLOCKMAN GO</b> ⚔️
+
+<br><br>
+
+Una comunidad de jugadores activos, competitivos
+y comprometidos con mejorar cada día.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#informacion" class="btn">
+👑 EXPLORAR LxS
+</a>
+
+<a
+href="https://chat.whatsapp.com/GcwiFbd3eo72cYZ1x5tkU0?s=cl&p=a&mlu=4&ilr=4"
+target="_blank"
+class="btn secondary">
+
+💬 GRUPO OFICIAL
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<div class="separator"></div>
+
+
+<!-- =========================================================
+     ESTADÍSTICAS
+========================================================= -->
+
+<section>
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-icon">👑</div>
+<div class="stat-number">2026</div>
+<div class="stat-label">AÑO DE FUNDACIÓN</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">👥</div>
+<div class="stat-number">50+</div>
+<div class="stat-label">JUGADORES EN EL TOP</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">🎮</div>
+<div class="stat-number">BG</div>
+<div class="stat-label">JUEGO PRINCIPAL</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">⚔️</div>
+<div class="stat-number">LxS</div>
+<div class="stat-label">SIGLAS OFICIALES</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     INFORMACIÓN
+========================================================= -->
+
+<section id="informacion">
+
+<div class="title">
+
+<h2>📜 INFORMACIÓN <span>OFICIAL</span></h2>
+
+<p>La identidad de Lexus</p>
+
+</div>
+
+
+<div class="info-grid">
+
+<div class="info-card">
+
+<div class="info-icon">🏆</div>
+
+<h3>NOMBRE</h3>
+
+<p>Lexus</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-icon">⚔️</div>
+
+<h3>SIGLAS</h3>
+
+<p>LxS</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-icon">📅</div>
+
+<h3>FUNDACIÓN</h3>
+
+<p>17/01/2026</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-icon">👑</div>
+
+<h3>FUNDADOR</h3>
+
+<p>Isaacj6c</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-icon">🎮</div>
+
+<h3>JUEGO PRINCIPAL</h3>
+
+<p>Blockman Go</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SOBRE LEXUS
+========================================================= -->
+
+<section>
+
+<div class="title">
+
+<h2>🌟 SOBRE <span>LEXUS</span></h2>
+
+</div>
+
+<div class="description">
+
+💎 <strong>Lexus (LxS)</strong> es un clan competitivo de
+<strong>Blockman Go</strong> fundado el
+<strong>17 de enero de 2026</strong> por
+👑 <strong>Isaacj6c</strong>.
+
+<br><br>
+
+⚔️ Nuestro clan reúne jugadores activos,
+competitivos y comprometidos con mejorar cada día.
+
+<br><br>
+
+🤝 Nos basamos en el respeto.<br>
+🛡️ Valoramos la lealtad.<br>
+🏆 Buscamos la excelencia.<br>
+🚀 Crecemos como equipo.<br>
+👑 Representamos con orgullo el nombre de Lexus.
+
+<br><br>
+
+💠 Más que un clan, somos una comunidad donde
+cada miembro aporta al crecimiento y éxito del equipo.
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     OBJETIVOS Y BENEFICIOS
+========================================================= -->
+
+<section id="objetivos">
+
+<div class="title">
+
+<h2>🎯 OBJETIVOS & <span>BENEFICIOS</span></h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>🎯 OBJETIVOS</h3>
+
+<ul>
+
+<li>🏆 Ser uno de los mejores clanes de BG.</li>
+
+<li>📈 Mejorar constantemente nuestras habilidades.</li>
+
+<li>⚔️ Participar en desafíos y competencias.</li>
+
+<li>🤝 Mantener una comunidad activa y unida.</li>
+
+<li>👑 Dejar huella dentro de Blockman Go.</li>
+
+<li>🚀 Hacer crecer el nombre de Lexus.</li>
+
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎁 BENEFICIOS</h3>
+
+<ul>
+
+<li>🎮 Comunidad activa.</li>
+
+<li>💬 Chat y convivencia.</li>
+
+<li>⚔️ Retos y entrenamientos.</li>
+
+<li>🏆 Eventos especiales.</li>
+
+<li>🤝 Nuevas amistades.</li>
+
+<li>📈 Mejora de habilidades.</li>
+
+<li>🌟 Oportunidades para destacar.</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     REGLAS
+========================================================= -->
+
+<section>
+
+<div class="title">
+
+<h2>📜 REGLAS DE <span>LxS</span></h2>
+
+</div>
+
+
+<div class="rules">
+
+<div class="rule-box good">
+
+<h3>✅ LO QUE BUSCAMOS</h3>
+
+<p>✅ Respetar a todos los miembros.</p>
+
+<p>✅ Mantener una buena conducta.</p>
+
+<p>✅ Apoyar al equipo cuando sea necesario.</p>
+
+<p>✅ Seguir las indicaciones del staff.</p>
+
+<p>✅ Representar al clan con orgullo.</p>
+
+</div>
+
+
+<div class="rule-box bad">
+
+<h3>❌ NO ESTÁ PERMITIDO</h3>
+
+<p>❌ Insultos graves.</p>
+
+<p>❌ Toxicidad excesiva.</p>
+
+<p>❌ Conflictos innecesarios.</p>
+
+<p>❌ Perjudicar la imagen del clan.</p>
+
+<p>❌ Faltar el respeto a otros jugadores.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     HISTORIA
+========================================================= -->
+
+<section>
+
+<div class="title">
+
+<h2>📅 HISTORIA DE <span>LxS</span></h2>
+
+<p>El camino de Lexus</p>
+
+</div>
+
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+
+<h3>17/01/2026 — 👑 FUNDACIÓN</h3>
+
+<p>
+Nace oficialmente Lexus (LxS),
+fundado por Isaacj6c.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+
+<h3>⚔️ FORMACIÓN</h3>
+
+<p>
+El clan comienza a reunir jugadores
+competitivos y activos.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+
+<h3>🤝 COMUNIDAD</h3>
+
+<p>
+Lexus comienza a crecer como una
+comunidad unida de jugadores.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+
+<h3>🏆 COMPETITIVIDAD</h3>
+
+<p>
+Los miembros buscan mejorar sus habilidades
+y representar al clan.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     TOP 3
+========================================================= -->
+
+<section id="top50">
+
+<div class="title">
+
+<h2>🏆⚡ TOP DE <span>LxS</span> ⚡🏆</h2>
+
+<p>Los tres primeros reciben un honor especial</p>
+
+</div>
+
+
+<div class="podium">
+
+
+<div class="podium-card first">
+
+<div class="podium-medal">🥇</div>
+
+<h3>Azuky</h3>
+
+<div class="podium-place">
+1.º LUGAR
+</div>
+
+<div class="honor">
+
+<div class="honor-title">
+⚡ HONOR ESPECIAL ⚡
+</div>
+
+<br>
+
+⚔️ MEMBER
+
+<br><br>
+
+🏆 Primer puesto del ranking
+oficial de Lexus.
+
+</div>
+
+</div>
+
+
+<div class="podium-card second">
+
+<div class="podium-medal">🥈</div>
+
+<h3>LetSun</h3>
+
+<div class="podium-place">
+2.º LUGAR
+</div>
+
+<div class="honor">
+
+<div class="honor-title">
+⚡ HONOR ESPECIAL ⚡
+</div>
+
+<br>
+
+👑 LÍDER DE LxS 2
+
+<br><br>
+
+🏆 Segundo puesto del ranking
+oficial de Lexus.
+
+</div>
+
+</div>
+
+
+<div class="podium-card third">
+
+<div class="podium-medal">🥉</div>
+
+<h3>Smith</h3>
+
+<div class="podium-place">
+3.º LUGAR
+</div>
+
+<div class="honor">
+
+<div class="honor-title">
+⚡ HONOR ESPECIAL ⚡
+</div>
+
+<br>
+
+👑 ELDER
+
+<br><br>
+
+🏆 Tercer puesto del ranking
+oficial de Lexus.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================================================
+     CONTROLES TOP
+========================================================= -->
+
+<div class="top-controls">
+
+<input
+type="text"
+id="search"
+class="search"
+placeholder="🔎 Buscar jugador..."
+>
+
+<select id="filter" class="filter">
+
+<option value="all">👑 Todos los rangos</option>
+
+<option value="member">🛡️ Member</option>
+
+<option value="elder">👑 Elder</option>
+
+<option value="leader">⚔️ Líder</option>
+
+</select>
+
+</div>
+
+
+<!-- =========================================================
+     TOP 50
+========================================================= -->
+
+<div class="top-list" id="topList">
+
+
+<!-- 4 -->
+
+<div class="player" data-role="leader">
+
+<div class="position">04</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Bladetekk</div>
+<div class="role">LÍDER DE LxS 3</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">05</div>
+<div class="player-icon">⚡</div>
+
+<div class="player-info">
+
+<div class="player-name">Dreyco</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">06</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">ATK</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">07</div>
+<div class="player-icon">💫</div>
+
+<div class="player-info">
+
+<div class="player-name">Swighty Solos</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">08</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">Topixo</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">09</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">GabuXDXD</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">10</div>
+<div class="player-icon">⚡</div>
+
+<div class="player-info">
+
+<div class="player-name">Saiko</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">11</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">Vylorix</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">12</div>
+<div class="player-icon">🛡️</div>
+
+<div class="player-info">
+
+<div class="player-name">Sr 67</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">13</div>
+<div class="player-icon">💎</div>
+
+<div class="player-info">
+
+<div class="player-name">Franco</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">14</div>
+<div class="player-icon">🌪️</div>
+
+<div class="player-info">
+
+<div class="player-name">Sotutio</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">15</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">The Slime el pro</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">16</div>
+<div class="player-icon">💥</div>
+
+<div class="player-info">
+
+<div class="player-name">Misa 6165</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">17</div>
+<div class="player-icon">⚡</div>
+
+<div class="player-info">
+
+<div class="player-name">Mix2007</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">18</div>
+<div class="player-icon">💫</div>
+
+<div class="player-info">
+
+<div class="player-name">Letz</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">19</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Boily</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">20</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">Skilled critik</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">21</div>
+<div class="player-icon">⚔️</div>
+
+<div class="player-info">
+
+<div class="player-name">Iamsolucky</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">22</div>
+<div class="player-icon">💥</div>
+
+<div class="player-info">
+
+<div class="player-name">Yaung</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">23</div>
+<div class="player-icon">⚡</div>
+
+<div class="player-info">
+
+<div class="player-name">Sandix</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">24</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Pollo Core</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">25</div>
+<div class="player-icon">⚔️</div>
+
+<div class="player-info">
+
+<div class="player-name">Rodri</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">26</div>
+<div class="player-icon">💫</div>
+
+<div class="player-info">
+
+<div class="player-name">NexsTexs</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">27</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">Román</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">28</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Hernan</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">29</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">Spiderman</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">30</div>
+<div class="player-icon">💥</div>
+
+<div class="player-info">
+
+<div class="player-name">Espanka Ruim</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">31</div>
+<div class="player-icon">⚡</div>
+
+<div class="player-info">
+
+<div class="player-name">Nico</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">32</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Dielais</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">33</div>
+<div class="player-icon">💫</div>
+
+<div class="player-info">
+
+<div class="player-name">Axel fretez</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">34</div>
+<div class="player-icon">⚔️</div>
+
+<div class="player-info">
+
+<div class="player-name">Natalie</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="leader">
+
+<div class="position">35</div>
+<div class="player-icon">🏆</div>
+
+<div class="player-info">
+
+<div class="player-name">Isaac</div>
+<div class="role">LÍDER DE LxS</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">36</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Richard</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="elder">
+
+<div class="position">37</div>
+<div class="player-icon">👑</div>
+
+<div class="player-info">
+
+<div class="player-name">ItzYulii</div>
+<div class="role">ELDER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">38</div>
+<div class="player-icon">⚡</div>
+
+<div class="player-info">
+
+<div class="player-name">Jhosep</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">39</div>
+<div class="player-icon">💥</div>
+
+<div class="player-info">
+
+<div class="player-name">PrimeYeager</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">40</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Lauty</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">41</div>
+<div class="player-icon">💫</div>
+
+<div class="player-info">
+
+<div class="player-name">Lunita</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">42</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Sr danny</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">43</div>
+<div class="player-icon">⚔️</div>
+
+<div class="player-info">
+
+<div class="player-name">Alork</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">44</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">Angel</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">45</div>
+<div class="player-icon">⚡</div>
+
+<div class="player-info">
+
+<div class="player-name">Cawasakl</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">46</div>
+<div class="player-icon">💥</div>
+
+<div class="player-info">
+
+<div class="player-name">Hexxus</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">47</div>
+<div class="player-icon">🌪️</div>
+
+<div class="player-info">
+
+<div class="player-name">Miguel1019</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">48</div>
+<div class="player-icon">⚔️</div>
+
+<div class="player-info">
+
+<div class="player-name">Khaosix</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">49</div>
+<div class="player-icon">🔥</div>
+
+<div class="player-info">
+
+<div class="player-name">xmirf</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+<div class="player" data-role="member">
+
+<div class="position">50</div>
+<div class="player-icon">💫</div>
+
+<div class="player-info">
+
+<div class="player-name">Yoakyi</div>
+<div class="role">MEMBER</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     LOGROS
+========================================================= -->
+
+<section>
+
+<div class="title">
+
+<h2>🏆 LOGROS & <span>VALORES</span></h2>
+
+</div>
+
+
+<div class="achievements">
+
+<div class="achievement">
+
+<div class="achievement-icon">⚔️</div>
+
+<h3>COMPETITIVIDAD</h3>
+
+<p>
+Siempre buscando mejorar.
+</p>
+
+</div>
+
+
+<div class="achievement">
+
+<div class="achievement-icon">🤝</div>
+
+<h3>LEALTAD</h3>
+
+<p>
+Un equipo unido es más fuerte.
+</p>
+
+</div>
+
+
+<div class="achievement">
+
+<div class="achievement-icon">🛡️</div>
+
+<h3>RESPETO</h3>
+
+<p>
+Representamos a Lexus con orgullo.
+</p>
+
+</div>
+
+
+<div class="achievement">
+
+<div class="achievement-icon">🚀</div>
+
+<h3>CRECIMIENTO</h3>
+
+<p>
+Cada día buscamos avanzar.
+</p>
+
+</div>
+
+
+<div class="achievement">
+
+<div class="achievement-icon">👑</div>
+
+<h3>LIDERAZGO</h3>
+
+<p>
+Guiar al equipo hacia adelante.
+</p>
+
+</div>
+
+
+<div class="achievement">
+
+<div class="achievement-icon">🏆</div>
+
+<h3>EXCELENCIA</h3>
+
+<p>
+El objetivo es ser mejores.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     LEMA
+========================================================= -->
+
+<section>
+
+<div class="motto">
+
+<div class="quote">
+
+🔥⚔️ "Las leyendas no nacen,<br>
+se construyen con esfuerzo." ⚔️🔥
+
+</div>
+
+<div class="motto-small">
+
+💎 HONOR • LEALTAD • FUERZA • VICTORIA 💎
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     COMO UNIRSE
+========================================================= -->
+
+<section id="unirse">
+
+<div class="title">
+
+<h2>📥 ¿CÓMO <span>UNIRSE?</span></h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>1️⃣ ÚNETE</h3>
+
+<p>
+Entra al grupo oficial de la comunidad.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>2️⃣ PRESÉNTATE</h3>
+
+<p>
+Preséntate ante los miembros de Lexus.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>3️⃣ RESPETA</h3>
+
+<p>
+Cumple las reglas y demuestra buena conducta.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>4️⃣ EVALUACIÓN</h3>
+
+<p>
+Espera la evaluación correspondiente del staff.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     JOIN
+========================================================= -->
+
+<section>
+
+<div class="join">
+
+<h2>
+👑 ¿ESTÁS LISTO PARA SER PARTE DE LxS?
+</h2>
+
+<p>
+
+Únete a la comunidad, demuestra tu potencial,
+conoce nuevos jugadores y ayuda a construir
+el futuro de Lexus.
+
+</p>
+
+
+<a
+href="https://chat.whatsapp.com/GcwiFbd3eo72cYZ1x5tkU0?s=cl&p=a&mlu=4&ilr=4"
+target="_blank"
+class="btn">
+
+💬 UNIRME AL GRUPO OFICIAL
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="footer-logo">
+LxS • LEXUS
+</div>
+
+<p style="margin-top:15px;">
+💎 Honor • Lealtad • Fuerza ⚔️
+</p>
+
+<p style="margin-top:12px;">
+Fundado el 17/01/2026 por
+<strong>Isaacj6c</strong>
+</p>
+
+<p style="margin-top:20px;font-size:11px;">
+© 2026 Lexus • Blockman Go Clan
+</p>
+
+</footer>
+
+
+<!-- =========================================================
+     BOTÓN ARRIBA
+========================================================= -->
+
+<a href="#top" class="back-top">
+⬆️
+</a>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   BUSCADOR + FILTRO DEL TOP
+========================================================= */
+
+const search = document.getElementById("search");
+const filter = document.getElementById("filter");
+const players = document.querySelectorAll(".player");
+
+function filterPlayers(){
+
+    const searchText =
+        search.value.toLowerCase().trim();
+
+    const selectedRole =
+        filter.value;
+
+    players.forEach(player => {
+
+        const name =
+            player
+            .querySelector(".player-name")
+            .textContent
+            .toLowerCase();
+
+        const role =
+            player.dataset.role;
+
+        const matchesName =
+            name.includes(searchText);
+
+        const matchesRole =
+            selectedRole === "all" ||
+            role === selectedRole;
+
+        if(matchesName && matchesRole){
+
+            player.style.display = "flex";
+
+        }else{
+
+            player.style.display = "none";
+
+        }
+
+    });
+
+}
+
+search.addEventListener(
+    "input",
+    filterPlayers
+);
+
+filter.addEventListener(
+    "change",
+    filterPlayers
+);
+
+
+/* =========================================================
+   EFECTO AL HACER SCROLL
+========================================================= */
+
+const navbar =
+    document.querySelector(".navbar");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 80){
+
+        navbar.style.background =
+            "rgba(7,2,15,.92)";
+
+        navbar.style.boxShadow =
+            "0 0 35px rgba(110,50,255,.2)";
+
+    }else{
+
+        navbar.style.background =
+            "rgba(10,3,22,.72)";
+
+        navbar.style.boxShadow =
+            "0 0 35px rgba(100,40,255,.12)";
+
+    }
+
+});
+
+
+/* =========================================================
+   REVEAL DE ELEMENTOS
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".info-card, .card, .player, .achievement, .stat, .podium-card, .timeline-content"
+    );
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.08
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(25px)";
+    element.style.transition =
+        "opacity .7s ease, transform .7s ease";
+
+    observer.observe(element);
+
+});
+
+</script>
+
+
+</body>
+</html>
